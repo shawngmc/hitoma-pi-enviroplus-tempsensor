@@ -382,7 +382,7 @@ while True:
             min_temp = corr_temperature
             max_temp = corr_temperature
 
-    if disp_imperial = true:
+    if disp_imperial == true:
         temp_imperial = (corr_temperature * 1.8) + 32
         temp_string = f"{temp_imperial:.0f}°F"
         range_string = "------"
