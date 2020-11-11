@@ -336,7 +336,7 @@ max_temp = None
 factor = 2.25
 cpu_temps = [get_cpu_temperature()] * 5
 
-disp_imperial = true
+disp_imperial = True
 
 # Set up light sensor
 ltr559 = LTR559()
