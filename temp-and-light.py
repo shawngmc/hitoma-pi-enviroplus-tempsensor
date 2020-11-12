@@ -199,19 +199,6 @@ def get_cpu_temperature():
         temp = int(temp) / 1000.0
     return temp
 
-def describe_light(light):
-    """Convert light level in lux to descriptive value."""
-    if light < 50:
-        description = "dark"
-    elif 50 <= light < 100:
-        description = "dim"
-    elif 100 <= light < 500:
-        description = "light"
-    elif light >= 500:
-        description = "bright"
-    return description
-
-
 # Initialise the LCD
 disp = ST7735.ST7735(
     port=0,
@@ -260,6 +247,9 @@ factor = 2.25
 cpu_temps = [get_cpu_temperature()] * 5
 
 disp_imperial = True
+
+# Set up light sensor
+ltr559 = LTR559()
 
 # Keep track of time elapsed
 start_time = time.time()
@@ -317,8 +307,6 @@ while True:
     light_string = f"{int(light):,}"
     img = overlay_text(img, (WIDTH - margin, 18), light_string, font_lg, align_right=True)
     spacing = font_lg.getsize(light_string.replace(",", ""))[1] + 1
-    light_desc = describe_light(light).upper()
-    img = overlay_text(img, (WIDTH - margin - 1, 18 + spacing), light_desc, font_sm, align_right=True, rectangle=True)
     light_icon = Image.open(f"{path}/icons/bulb-{light_desc.lower()}.png")
     img.paste(humidity_icon, (80, 18), mask=light_icon)
 
