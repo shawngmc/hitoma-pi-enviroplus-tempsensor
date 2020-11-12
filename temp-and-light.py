@@ -215,8 +215,8 @@ WIDTH = disp.width
 HEIGHT = disp.height
 
 # The city and timezone that you want to display.
-city_name = "Sheffield"
-time_zone = "Europe/London"
+city_name = "Herndon"
+time_zone = "America/New_York"
 
 # Values that alter the look of the background
 blur = 50
@@ -231,6 +231,7 @@ sun_radius = 50
 font_sm = ImageFont.truetype(UserFont, 12)
 font_lg = ImageFont.truetype(UserFont, 14)
 font_xl = ImageFont.truetype(UserFont, 28)
+font_xxl = ImageFont.truetype(UserFont, 48)
 
 # Margins
 margin = 3
@@ -295,8 +296,8 @@ while True:
             range_string = f"{min_temp:.0f}-{max_temp:.0f}"
         else:
             range_string = "------"
-    img = overlay_text(img, (68, 18), temp_string, font_xl, align_right=True)
-    spacing = font_xl.getsize(temp_string)[1] + 1
+    img = overlay_text(img, (disp.width - margin, 18), temp_string, font_xxl, align_right=True)
+    spacing = font_xxl.getsize(temp_string)[1] + 1
     temp_icon = Image.open(f"{path}/icons/temperature.png")
     img.paste(temp_icon, (margin, 18), mask=temp_icon)
 
