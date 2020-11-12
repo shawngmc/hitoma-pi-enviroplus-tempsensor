@@ -230,7 +230,7 @@ sun_radius = 50
 # Fonts
 font_sm = ImageFont.truetype(UserFont, 12)
 font_lg = ImageFont.truetype(UserFont, 14)
-font_xl = ImageFont.truetype(UserFont, 20)
+font_xl = ImageFont.truetype(UserFont, 28)
 
 # Margins
 margin = 3
@@ -295,7 +295,7 @@ while True:
             range_string = f"{min_temp:.0f}-{max_temp:.0f}"
         else:
             range_string = "------"
-    img = overlay_text(img, (68, 18), temp_string, font_lg, align_right=True)
+    img = overlay_text(img, (68, 18), temp_string, font_xl, align_right=True)
     spacing = font_xl.getsize(temp_string)[1] + 1
     temp_icon = Image.open(f"{path}/icons/temperature.png")
     img.paste(temp_icon, (margin, 18), mask=temp_icon)
