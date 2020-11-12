@@ -307,8 +307,6 @@ while True:
     light_string = f"{int(light):,}"
     img = overlay_text(img, (WIDTH - margin, 18), light_string, font_lg, align_right=True)
     spacing = font_lg.getsize(light_string.replace(",", ""))[1] + 1
-    light_icon = Image.open(f"{path}/icons/bulb-{light_desc.lower()}.png")
-    img.paste(humidity_icon, (80, 18), mask=light_icon)
 
     # Display image
     disp.display(img)
