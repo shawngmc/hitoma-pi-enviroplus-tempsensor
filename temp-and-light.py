@@ -296,17 +296,9 @@ while True:
         else:
             range_string = "------"
     img = overlay_text(img, (68, 18), temp_string, font_lg, align_right=True)
-    spacing = font_lg.getsize(temp_string)[1] + 1
-    
-    img = overlay_text(img, (68, 18 + spacing), range_string, font_sm, align_right=True, rectangle=True)
+    spacing = font_xl.getsize(temp_string)[1] + 1
     temp_icon = Image.open(f"{path}/icons/temperature.png")
     img.paste(temp_icon, (margin, 18), mask=temp_icon)
-
-    # Light
-    light = ltr559.get_lux()
-    light_string = f"{int(light):,}"
-    img = overlay_text(img, (WIDTH - margin, 18), light_string, font_lg, align_right=True)
-    spacing = font_lg.getsize(light_string.replace(",", ""))[1] + 1
 
     # Display image
     disp.display(img)
